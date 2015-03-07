@@ -4,57 +4,43 @@
 public class Product {
 
     // region Instance fields
-
     private String name;
     private double price;
-    private int qunatity;
-
+    private int quantity;
     // endregion
 
     // region Constructors
-
-    public Product(String name, double price, int qunatity) {
+    public Product(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
-        this.qunatity = qunatity;
+        this.quantity = quantity;
     }
-
     // endregion
 
     // region Member Methods
-
     public void printInfo (){
-        System.out.println(name + "\t" + "quantity" + "\t" + qunatity + "\t" + "price" + "\t" + price);
+        System.out.println(name + "\t" + "quantity" + "\t" + quantity + "\t" + "price" + "\t" + price);
     }
-
     // endregion
 
     // region Setters and Getters
-
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public double getPrice() {
         return price;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }
-
-    public int getQunatity() {
-        return qunatity;
+    public int getQuantity() {
+        return quantity;
     }
-
-    public void setQunatity(int qunatity) {
-        this.qunatity = qunatity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-
     // endregion
 }

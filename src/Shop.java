@@ -6,29 +6,21 @@ import java.util.ArrayList;
 public class Shop {
 
     // region Instance Fields
-
     private ArrayList <Seller> sellers;
     private ArrayList <Product> products;
-
+    private double profitPercent;
     // endregion
 
     // region Constructors
-
     public Shop() {
-       sellers = new ArrayList<Seller>();
+        sellers = new ArrayList<Seller>();
         products = new ArrayList<Product>();
     }
-
     // endregion
 
     // region Member Methods
-
     public void printSellerInfo (){
-        if (sellers.size() == 0){
-            return;
-        }
-
-        for (int i = 0; i< sellers.size(); i++){
+        for (int i = 0; i < sellers.size(); i++){
             System.out.print(i + 1 + ". ");
             sellers.get(i).printInfo();
             System.out.println();
@@ -36,10 +28,6 @@ public class Shop {
     }
 
     public void printProductInfo (){
-        if(products.size() == 0){
-            return;
-        }
-
         for (int i = 0; i < products.size(); i++){
             System.out.print(i + 1 + ". ");
             products.get(i).printInfo();
@@ -60,7 +48,6 @@ public class Shop {
             if (sellers.remove(seller)){
                 return true;
             }
-
         }
         return false;
     }
@@ -79,30 +66,27 @@ public class Shop {
                 return true;
             }
         }
-
         return false;
     }
 
-    public double incomeCalculator(ArrayList <Product> products){
-        if (products != null){
+    public double incomeCalculator(){
+        if (products == null){
             return 0;
         }
-
-        int incomeSum = 0;
+        double incomeSum = 0;
         for (int i = 0; i < products.size(); i++ ){
-            incomeSum += products.get(i).getQunatity()*products.get(i).getPrice();
+            incomeSum += products.get(i).getQuantity() * products.get(i).getPrice();
         }
-
         return incomeSum;
     }
 
-    public double profitCalculator (ArrayList <Product> products){
-        if (products != null){
+    public double profitCalculator (){
+        if (products == null) {
             return 0;
         }
-        int profitSum = 0;
-        for (int i = 0; i < products.size(); i++){
-            profitSum += products.get(i).getQunatity() * (products.get(i).getPrice()*0.2);
+        double profitSum = 0;
+        for (int i = 0; i < products.size(); i++) {
+            profitSum += products.get(i).getQuantity() * (products.get(i).getPrice() * profitPercent);
         }
         return profitSum;
     }
@@ -128,5 +112,12 @@ public class Shop {
         this.products = products;
     }
 
+    public double getProfitPercent() {
+        return profitPercent;
+    }
+
+    public void setProfitPercent(double profitPercent) {
+        this.profitPercent = profitPercent;
+    }
     // endregion
 }
